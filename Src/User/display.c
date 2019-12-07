@@ -1,11 +1,13 @@
 #include "display.h"
 #include "WS2812B.h"
+#include "tim.h"
 
 color_t DisplayFrameBuffer[PIXEL_ROW][PIXEL_COL];
 
 void InitDisplay ()
 {
 	InitLed();
+	HAL_TIM_Base_Start_IT(&htim6);
 }
 
 void SelfCheck ()
