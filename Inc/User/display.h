@@ -6,4 +6,9 @@
 #define PIXEL_ROW   16
 #define PIXEL_COL   16
 
+void InitDisplay();
+void SelfCheck ();
+void PixelToString ();
+void RefreshDisplay ();
+
 #endif

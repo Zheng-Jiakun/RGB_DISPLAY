@@ -46,8 +46,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "WS2812B.h"
-#include "display.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -74,7 +73,8 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void Setup();
+void Loop();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -112,9 +112,10 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_TIM3_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  InitLed();
+  Setup();
 
   /* USER CODE END 2 */
 
@@ -123,11 +124,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    for (uint8_t i = 0; i < LED_NUM; i++)
-    {
-      LEDString[i].r = 50;
-    }
-    UpdateLedString();
+    Loop();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
