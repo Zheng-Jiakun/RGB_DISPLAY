@@ -1,10 +1,12 @@
 #ifndef _WS2812B_H_
 #define _WS2812B_H_
 
-#include "stm32f3xx_hal.h"
-#include "display.h"
+#include "main.h"
+#include "dma.h"
+#include "tim.h"
+// #include "display.h"
 
-#define LED_NUM     (PIXEL_COL*PIXEL_ROW)
+#define LED_NUM     256//(PIXEL_COL*PIXEL_ROW)
 
 typedef struct 
 {

@@ -1,23 +1,22 @@
 #include "main.h"
 #include "WS2812B.h"
 #include "display.h"
+#include "music.h"
 
-uint32_t adc_result;
+// extern color_t DisplayFrameBuffer[PIXEL_ROW][PIXEL_COL];
+
 
 void Setup (void)
 {
     InitLed();
     InitDisplay();
-
-    // HAL_ADCEx_Calibration_Start();
+    // StartSampling();
+    
+    // SelfCheck();
 }
 
 void Loop (void)
 {
-    SelfCheck();
-    // if (HAL_ADC_PollForConversion() == HAL_OK)
-    // {
-    //     adc_result = HAL_ADC_GetValue();
-    //     HAL_ADC_Start();
-    // }
+    show_chrome();
+    // HAL_Delay(10);
 }

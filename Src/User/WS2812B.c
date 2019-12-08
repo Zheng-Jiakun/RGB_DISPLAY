@@ -1,6 +1,4 @@
 #include <WS2812B.h>
-#include <dma.h>
-#include <tim.h>
 
 #define FRAME_SIZE (30 + 24 * LED_NUM + 50)
 

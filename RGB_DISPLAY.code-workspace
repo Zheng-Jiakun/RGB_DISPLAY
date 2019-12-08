@@ -8,7 +8,12 @@
         "files.associations": {
             "main.h": "c",
             "display.h": "c",
-            "ws2812b.h": "c"
+            "ws2812b.h": "c",
+            "music.h": "c",
+            "tim.h": "c",
+            "animation.h": "c",
+            "stm32f3xx_hal.h": "c",
+            "stdint.h": "c"
         }
     }
 }
