@@ -3,6 +3,8 @@
 
 #include "display.h"
 
-void UpdateColumns();
+#define SLIDE_SPEED     1
+
+void UpdateColumns (uint8_t ColumnsHeight[PIXEL_COL]);
 
 #endif

@@ -8,6 +8,8 @@
 #define PIXEL_ROW 16
 #define PIXEL_COL 16
 
+#define CHECK_SPEED 5
+
 // typedef struct
 // {
 //     uint8_t r;

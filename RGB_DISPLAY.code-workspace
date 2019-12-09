@@ -13,7 +13,12 @@
             "tim.h": "c",
             "animation.h": "c",
             "stm32f3xx_hal.h": "c",
-            "stdint.h": "c"
+            "stdint.h": "c",
+            "adc.h": "c",
+            "arm_math.h": "c",
+            "arm_const_structs.h": "c",
+            "stm32f3xx.h": "c",
+            "arm_common_tables.h": "c"
         }
     }
 }

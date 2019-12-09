@@ -5,7 +5,7 @@ color_t DisplayFrameBuffer[PIXEL_ROW][PIXEL_COL];
 void InitDisplay ()
 {
 	InitLed();
-	HAL_TIM_Base_Start_IT(&htim6);
+	HAL_TIM_Base_Start_IT(&htim7);
 }
 
 void SelfCheck ()
@@ -17,7 +17,7 @@ void SelfCheck ()
 			DisplayFrameBuffer[i][j].r = 10;
 			DisplayFrameBuffer[i][j].g = 0;
 			DisplayFrameBuffer[i][j].b = 0;
-			HAL_Delay(50);
+			HAL_Delay(CHECK_SPEED);
 		}
 	}
 	for (uint8_t i = 0; i < 16; i++)
@@ -27,7 +27,7 @@ void SelfCheck ()
 			DisplayFrameBuffer[i][j].r = 0;
 			DisplayFrameBuffer[i][j].g = 10;
 			DisplayFrameBuffer[i][j].b = 0;
-			HAL_Delay(50);
+			HAL_Delay(CHECK_SPEED);
 		}
 	}
 	for (uint8_t i = 0; i < 16; i++)
@@ -37,7 +37,16 @@ void SelfCheck ()
 			DisplayFrameBuffer[i][j].r = 0;
 			DisplayFrameBuffer[i][j].g = 0;
 			DisplayFrameBuffer[i][j].b = 10;
-			HAL_Delay(50);
+			HAL_Delay(CHECK_SPEED);
+		}
+	}
+	for (uint8_t i = 0; i < 16; i++)
+	{
+		for (uint8_t j = 0; j < 16; j++)
+		{
+			DisplayFrameBuffer[i][j].r = 0;
+			DisplayFrameBuffer[i][j].g = 0;
+			DisplayFrameBuffer[i][j].b = 0;
 		}
 	}
 }

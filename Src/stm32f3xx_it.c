@@ -75,7 +75,7 @@
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_tim3_ch4_up;
-extern TIM_HandleTypeDef htim6;
+extern TIM_HandleTypeDef htim7;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -226,7 +226,7 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE END DMA1_Channel1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc1);
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
-  // ProcessFFT ();
+  ProcessFFT ();
   /* USER CODE END DMA1_Channel1_IRQn 1 */
 }
 
@@ -245,17 +245,17 @@ void DMA1_Channel3_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles Timer 6 interrupt and DAC underrun interrupts.
+  * @brief This function handles TIM7 global interrupt.
   */
-void TIM6_DAC_IRQHandler(void)
+void TIM7_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+  /* USER CODE BEGIN TIM7_IRQn 0 */
 
-  /* USER CODE END TIM6_DAC_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim6);
-  /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
-  RefreshDisplay ();
-  /* USER CODE END TIM6_DAC_IRQn 1 */
+  /* USER CODE END TIM7_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
+  /* USER CODE BEGIN TIM7_IRQn 1 */
+  RefreshDisplay();
+  /* USER CODE END TIM7_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
