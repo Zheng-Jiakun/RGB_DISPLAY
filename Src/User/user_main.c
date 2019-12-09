@@ -20,7 +20,7 @@ void Setup (void)
 void Loop (void)
 {
     for (uint8_t col = 0; col < PIXEL_COL; col++)
-        ColumnHeights[15-col] = FFTSampleResult[col]/2000.0f*PIXEL_ROW;  //FFT_NUM/PIXEL_COL*(col+1)
+        ColumnHeights[15-col] = FFTSampleResult[col]/1500.0f*PIXEL_ROW;  //FFT_NUM/PIXEL_COL*(col+1)
     UpdateColumns(ColumnHeights);
     // show_chrome();
     // HAL_Delay(10);
