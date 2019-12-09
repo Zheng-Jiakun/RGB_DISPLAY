@@ -1,29 +1,36 @@
 #include "animation.h"
 
+void ClearPixel (uint8_t row, uint8_t col)
+{
+    DisplayFrameBuffer[row][col].r = 0;
+    DisplayFrameBuffer[row][col].g = 0;
+    DisplayFrameBuffer[row][col].b = 0;
+}
+
+void SetPixel (uint8_t row, uint8_t col)
+{
+    DisplayFrameBuffer[row][col].r = 255/16;
+    DisplayFrameBuffer[row][col].g = 179/16;
+    DisplayFrameBuffer[row][col].b = 214/16;
+}
+
 void UpdateColumns (uint8_t ColumnsHeight[PIXEL_COL])
 {
+    static uint8_t LastColumnsHeight[PIXEL_COL];
     for (uint8_t col = 0; col < PIXEL_COL; col++)
     {
-        if (col >= 0 && col < 5)
+        if (ColumnsHeight[col] > PIXEL_ROW)
+            ColumnsHeight[col] = PIXEL_ROW;
+        if (LastColumnsHeight[col] > ColumnsHeight[col])
         {
-            for (uint8_t i = 0; i < PIXEL_ROW; i++)
-                DisplayFrameBuffer[i][col].b = 0;
-            for (uint8_t i = 0; i < ColumnsHeight[col]; i++)
-                DisplayFrameBuffer[i][col].b = 10;
+            ClearPixel(LastColumnsHeight[col]-1, col);
+            LastColumnsHeight[col]--;
         }
-        else if (col >= 5 && col < 10)
+        else if (LastColumnsHeight[col] < ColumnsHeight[col])
         {
-            for (uint8_t i = 0; i < PIXEL_ROW; i++)
-                DisplayFrameBuffer[i][col].g = 0;
-            for (uint8_t i = 0; i < ColumnsHeight[col]; i++)
-                DisplayFrameBuffer[i][col].g = 10;
+            SetPixel(LastColumnsHeight[col], col);
+            LastColumnsHeight[col]++;
         }
-        else if (col >= 10 && col < 16)
-        {
-            for (uint8_t i = 0; i < PIXEL_ROW; i++)
-                DisplayFrameBuffer[i][col].r = 0;
-            for (uint8_t i = 0; i < ColumnsHeight[col]; i++)
-                DisplayFrameBuffer[i][col].r = 10;
-        }
+        HAL_Delay(SLIDE_SPEED);
     }
 }

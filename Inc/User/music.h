@@ -5,12 +5,16 @@
 #include "arm_math.h"
 #include "arm_const_structs.h"
 
-#define SAMPLE_NUM  512
-#define FFT_NUM     SAMPLE_NUM/2
+#define FFT_SAMPLE_NUM    16
+
+#define RAW_SAMPLE_NUM  2048
+#define FFT_NUM     RAW_SAMPLE_NUM/2
 
 extern float32_t FFTResult[FFT_NUM];
+extern uint16_t FFTSampleResult[FFT_SAMPLE_NUM];
 
 void StartSampling ();
 void ProcessFFT ();
+void FFTResultFilter ();
 
 #endif
